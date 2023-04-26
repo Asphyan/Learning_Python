@@ -11,17 +11,20 @@ dados = {}
 
 
 def cadastro():
-    lista = int(input('Quantas pessoas vai cadastrar?.: '))
-    os.system('cls')
-    for i in range(lista):
-        print(f'{i+1}° pessoa a cadastrar\n')
-        nome = input('Digite seu nome: ')
-        idade = int(input('Digite sua idade: '))
-        email = input('Digite seu email: ')
-        dado = {'Nome': nome, 'Idade': idade, 'E-mail': email}
-        dados[nome] = dado
+    try:
+        lista = int(input('Quantas pessoas vai cadastrar?.: '))
         os.system('cls')
-        print('Cadastro efetuado com sucesso!\n')
+        for i in range(lista):
+            print(f'{i+1}° pessoa a cadastrar\n')
+            nome = input('Digite seu nome: ')
+            idade = int(input('Digite sua idade: '))
+            email = input('Digite seu email: ')
+            dado = {'Nome': nome, 'Idade': idade, 'E-mail': email}
+            dados[nome] = dado
+            os.system('cls')
+            print('Cadastro efetuado com sucesso!\n')
+    except ValueError:
+        print('O valor digitado é inválido!')
 
 
 def editar():
@@ -83,13 +86,16 @@ def excluir():
         print('Idade: ', dado['Idade'])
         print('E-mail: ', dado['E-mail'])
         print('----------')
-    nome = input('\nDigite o nome que deseja excluir: ')
-    os.system('cls')
-    if nome in dados:
-        del dados[nome]
-        print('Item excluído com sucesso!')
-    else:
-        print('Nome não encontrado!')
+    try:
+        nome = input('\nDigite o nome que deseja excluir: ')
+        os.system('cls')
+        if nome in dados:
+            del dados[nome]
+            print('Item excluído com sucesso!')
+        else:
+            print('Nome não encontrado!')
+    except ValueError:
+        print('O valor digitado é inválido!')
 
 
 while True:
@@ -102,18 +108,22 @@ while True:
     print('3 - Pesquisar')
     print('4 - Exluir')
     print('5 - Encerrar')
-    option = int(input('\nDigite a opção escolhida: '))
-    os.system('cls')
-    if option == 1:
-        cadastro()
-    elif option == 2:
-        editar()
-    elif option == 3:
-        pesquisar()
-    elif option == 4:
-        excluir()
-    elif option == 5:
-        print('Programa Encerrado!')
-        break
-    else:
-        print('Número inválido!')
+
+    try:
+        option = int(input('\nDigite a opção escolhida: '))
+        os.system('cls')
+        if option == 1:
+            cadastro()
+        elif option == 2:
+            editar()
+        elif option == 3:
+            pesquisar()
+        elif option == 4:
+            excluir()
+        elif option == 5:
+            print('Programa Encerrado!')
+            break
+        else:
+            print('Número inválido!')
+    except ValueError:
+        print('O valor digitado é inválido!')
