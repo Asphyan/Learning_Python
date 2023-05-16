@@ -13,6 +13,7 @@ quant = int(input('Digite quantas chave/valor quer adicionar: '))
 for i in range(quant):
     chave = input('Digite sua chave: ')
     valor = float(input('Digite um número: '))
+    dic[chave] = valor
 
 dic['idade'] = int(input('(Chave idade) digite sua idade: '))
 idade = dic['idade']
