@@ -1,35 +1,20 @@
-# Criando uma Pilha simples.
-
 class Pilha:
     def __init__(self):
-        self.itens = []
-    
-    def vazia(self):
-        return len(self.itens) == 0
-    
-    def empilhar(self, itens):
-        return self.itens.append(itens)
-    
+        self.pilha = []
+
+    def push(self, item):
+        self.pilha.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            return self.pilha.pop()
+        return None
+
     def top(self):
-        if not self.vazia():
-            return self.itens[-1]
-        else:
-            return None
+        if not self.is_empty():
+            return self.pilha[-1]
+        return None
+
+    def is_empty(self):
+        return len(self.pilha) == 0
     
-    def desempilhar(self):
-        if not self.vazia():
-            return self.itens.pop()
-        else:
-            return None
-    def tamanho(self):
-        return len(self.itens)
-
-
-pilha = Pilha()
-pilha.empilhar(1)
-pilha.empilhar(2)
-pilha.empilhar(3)
-pilha.empilhar(4)
-pilha.empilhar(5)
-
-print(pilha.tamanho())
