@@ -6,14 +6,14 @@ Escreva uma função em Python chamada "calcular_desconto" que recebe a idade do
 retorna o valor do desconto a ser aplicado.
 '''
 
-def calcular_desconto():
-    print('## Verificador de descontos ##')
-
-    idade = int(input('Informe sua idade: '))
-
-    if idade < 21:
-        print('Desconto de 15%!!! (menores de 21)')
+def calcular_desconto(idade, idade_min):
+    if idade < idade_min:
+        print(f'Desconto de 15%!!! (menores de {idade_min})')
     else:
-        print('Desconto de 10%!!! (maiores de 21)')
+        print(f'Desconto de 10%!!! (maiores de {idade_min})')
 
-calcular_desconto()
+print('## Verificador de descontos ##')
+
+idade = int(input('Informe sua idade: '))
+
+calcular_desconto(idade, 21)
